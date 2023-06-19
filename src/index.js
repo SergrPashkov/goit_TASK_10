@@ -19,7 +19,7 @@ fetchBreeds().then(data => {
 optionElem.addEventListener('change', (even) => {
 		loaderEl.classList.remove('hidden');
 		catInfoElem.classList.add('hidden');
-		idCat = even.target.value;
+		let idCat = even.target.value;
 	fetchCatByBreed(idCat).then(data => {
 		loaderEl.classList.add('hidden');
 		catInfoElem.classList.remove('hidden');
