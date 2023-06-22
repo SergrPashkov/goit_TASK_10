@@ -8,11 +8,11 @@ const catInfoElem = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 
 fetchBreeds().then(data => {
-	data.map(({name, reference_image_id}) => {
-		loaderEl.classList.add('hidden');
-		optionElem.append(new Option(name, reference_image_id))
-		}
-	)
+	loaderEl.classList.add('hidden');
+	const arreyFetchBreeds = data.map(({name, reference_image_id}) => 
+		`<option value="${reference_image_id}">${name}</option>`
+	).join('')
+	optionElem.insertAdjacentHTML('beforeend', arreyFetchBreeds);
 })
 .catch(err => console.log(err))
 
